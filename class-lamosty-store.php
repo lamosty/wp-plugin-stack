@@ -19,4 +19,11 @@ abstract class Lamosty_Store {
 		return $this->data[ $key ];
 	}
 
+	final protected function add_single_data( $key, $value ) {
+		$this->data[ $key ] = $value;
+
+		return true;
+	}
+
+	// TODO: Add add_data($values) which will add/overwrite the local array $data
 }
