@@ -4,7 +4,7 @@
  * @ Lamosty.com 2015
  */
 abstract class Lamosty_Plugin {
-
+	protected $dispatcher = null;
 	protected $views = array();
 	protected $stores = array();
 
@@ -20,8 +20,9 @@ abstract class Lamosty_Plugin {
 		return $this->views[ $view_id ];
 	}
 
-	protected function __construct($file) {
-		$this->file = $file;
+	protected function __construct( $dispatcher, $file ) {
+		$this->file       = $file;
+		$this->dispatcher = $dispatcher;
 
 		spl_autoload_register( array( $this, 'autoload' ) );
 	}
@@ -46,11 +47,11 @@ abstract class Lamosty_Plugin {
 	protected function autoload( $class_name ) {
 		$path = "";
 
-		$class_name     = strtolower( $class_name );
+		$class_name = strtolower( $class_name );
 
 		$file_name = 'class-' . str_replace( '_', '-', $class_name ) . '.php';
 
-		$class_prefix_len = strlen($this->class_prefix);
+		$class_prefix_len = strlen( $this->class_prefix );
 
 
 		if ( strpos( $class_name, 'store' ) === $class_prefix_len + 1 ) {
