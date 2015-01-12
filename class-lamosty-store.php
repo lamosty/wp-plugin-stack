@@ -3,9 +3,8 @@
 /**
  * @ Lamosty.com 2015
  */
-
 abstract class Lamosty_Store {
-
+	protected $id;
 	protected $data = array();
 
 	final public function id() {
