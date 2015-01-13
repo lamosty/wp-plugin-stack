@@ -11,7 +11,7 @@ abstract class Lamosty_Store {
 		return $this->id;
 	}
 
-	final public function get_all_data() {
+	final public function get_data() {
 		return $this->data;
 	}
 
