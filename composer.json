@@ -1,0 +1,13 @@
+{
+    "name": "lamosty/wp-plugin-stack",
+    "description": "WP Plugin Stack is a set of libraries and helpers to aid in plugin development. Work in progress.",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Rastislav Lamos",
+            "email": "lamos.rasto@gmail.com",
+            "homepage": "https://lamosty.com"
+        }
+    ],
+    "require": {}
+}
