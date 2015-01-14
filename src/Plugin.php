@@ -1,21 +1,24 @@
-<?php
+<?php namespace Lamosty\WP_Plugin_Stack;
 
 /**
  * @ Lamosty.com 2015
  */
-
-namespace Lamosty\WP_Plugin_Stack;
 
 abstract class Plugin {
 	protected $dispatcher = null;
 	protected $views = array();
 	protected $stores = array();
 
-	protected $class_prefix = 'lamosty';
+	/**
+	 * Set to the namespace of class which extends this one
+	 * @const $namespace
+	 */
+	protected $namespace;
 
 	public function get_view( $view_id ) {
 		if ( ! array_key_exists( $view_id, $this->views ) ) {
-			$view_class_name = $this->class_prefix . '_Views_' . $view_id;
+			$view_id         = ucfirst( $view_id );
+			$view_class_name = $this->namespace . "\\Views\\{$view_id}_Views";
 
 			$this->views[ $view_id ] = new $view_class_name;
 		}
@@ -23,25 +26,18 @@ abstract class Plugin {
 		return $this->views[ $view_id ];
 	}
 
-	protected function __construct( $dispatcher, $file ) {
-		$this->file       = $file;
+	protected function __construct( $dispatcher) {
 		$this->dispatcher = $dispatcher;
 	}
 
 	public function get_store( $store_id ) {
 		if ( ! array_key_exists( $store_id, $this->stores ) ) {
-			$store_class_name = $this->class_prefix . '_Store_' . $store_id;
+			$store_id         = ucfirst( $store_id );
+			$store_class_name = $this->namespace . "\\Stores\\{$store_id}_Store";
 
 			$this->stores[ $store_id ] = new $store_class_name;
 		}
 
 		return $this->stores[ $store_id ];
-	}
-
-	public function get_include_class_path( $file ) {
-		$includes_path = plugin_dir_path( $this->file ) . 'includes/';
-
-		return $includes_path . $file;
-
 	}
 }
