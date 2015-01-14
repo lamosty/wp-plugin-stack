@@ -11,7 +11,7 @@ abstract class Lamosty_Actions {
 		$this->dispatcher = $dispatcher;
 	}
 
-	abstract public function init_actions();
+	abstract public function init_wp_actions();
 
 	final public function id() {
 		return $this->id;
