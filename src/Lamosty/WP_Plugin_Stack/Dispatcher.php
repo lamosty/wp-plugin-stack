@@ -3,7 +3,10 @@
 /**
  * @ Lamosty.com 2015
  */
-final class Lamosty_Dispatcher {
+
+namespace Lamosty\WP_Plugin_Stack;
+
+final class Dispatcher {
 	protected $callbacks = array();
 	protected $is_pending = array();
 	protected $is_handled = array();

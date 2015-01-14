@@ -9,5 +9,10 @@
             "homepage": "https://lamosty.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Lamosty\\WP_Plugin_Stack\\": "src/Lamosty/WP_Plugin_Stack/"
+        }
+    }
 }

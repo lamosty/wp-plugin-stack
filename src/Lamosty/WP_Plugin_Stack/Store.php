@@ -3,7 +3,10 @@
 /**
  * @ Lamosty.com 2015
  */
-abstract class Lamosty_Store {
+
+namespace Lamosty\WP_Plugin_Stack;
+
+abstract class Store {
 	protected $id;
 	protected $data = array();
 

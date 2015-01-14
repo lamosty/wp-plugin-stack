@@ -3,11 +3,14 @@
 /**
  * @ Lamosty.com 2015
  */
-abstract class Lamosty_Actions {
+
+namespace Lamosty\WP_Plugin_Stack;
+
+abstract class Actions {
 	protected $id = null;
 	protected $dispatcher = null;
 
-	public function __construct( Lamosty_Dispatcher $dispatcher ) {
+	public function __construct( Dispatcher $dispatcher ) {
 		$this->dispatcher = $dispatcher;
 	}
 
