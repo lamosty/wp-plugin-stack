@@ -14,15 +14,15 @@ abstract class Store {
 		return $this->id;
 	}
 
-	final public function get_data() {
+	final public function get_all() {
 		return $this->data;
 	}
 
-	final public function get_single_data( $key ) {
+	final public function get( $key ) {
 		return $this->data[ $key ];
 	}
 
-	final public function add_single_data( $key, $value ) {
+	final public function add( $key, $value ) {
 		$this->data[ $key ] = $value;
 
 		return true;
@@ -35,7 +35,7 @@ abstract class Store {
 	 * @return bool
 	 */
 
-	final public function add_data( array $new_data ) {
+	final public function merge( array $new_data ) {
 		array_merge( $this->data, $new_data );
 
 		return true;
